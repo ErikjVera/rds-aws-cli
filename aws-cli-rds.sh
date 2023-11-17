@@ -1,3 +1,6 @@
+# Añadir permisos directamente al rol asumido (Erik_Javaloya)
+aws iam attach-role-policy --role-name voclabs/user2562510=Erik_Javaloya --policy-arn arn:aws:iam::aws:policy/AmazonRDSFullAccess
+
 # Crear grupo de seguridad para la base de datos
 bd_erik_cli=$(aws ec2 create-security-group --group-name gs-erik-cli --description "Grupo de seguridad para la base de datos" --output json --query 'GroupId' | tr -d '"')
 
@@ -18,5 +21,3 @@ aws rds create-db-instance \
   --port 3306 \
   --multi-az
 
-# Añadir permisos directamente al rol asumido (Erik_Javaloya)
-aws iam attach-role-policy --role-name voclabs/user2562510=Erik_Javaloya --policy-arn arn:aws:iam::aws:policy/AmazonRDSFullAccess
