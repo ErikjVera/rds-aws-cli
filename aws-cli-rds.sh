@@ -1,5 +1,5 @@
 # Crear grupo de seguridad para la base de datos
-bd_erik_cli=$(aws ec2 create-security-group 
+bd_erik_cli=$(aws ec2 create-security-group)
 --group-name gs-erik-cli 
 --description "Grupo de seguridad para la base de datos"
 
