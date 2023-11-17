@@ -18,3 +18,5 @@ aws rds create-db-instance \
   --port 3306 \
   --multi-az
 
+# Añadir permisos directamente al rol asumido (Erik_Javaloya)
+aws iam attach-role-policy --role-name voclabs/user2562510=Erik_Javaloya --policy-arn arn:aws:iam::aws:policy/AmazonRDSFullAccess
