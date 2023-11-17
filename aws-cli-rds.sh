@@ -1,15 +1,14 @@
 # Crear grupo de seguridad para la base de datos
 bd_erik_cli=$(aws ec2 create-security-group 
 --group-name gs-erik-cli 
---description "Grupo de seguridad para la base de datos" 
---output json 
---query 'GroupId' | tr -d '"')
+--description "Grupo de seguridad para la base de datos"
+
 
 # Abrir puerto 3306 para tráfico entrante
-aws ec2 authorize-security-group-ingress 
---group-id $bd_erik_cli 
---protocol tcp 
---port 3306 
+aws ec2 authorize-security-group-ingress \
+--group-id $bd_erik_cli \
+--protocol tcp \
+--port 3306 \
 --cidr 0.0.0.0/0
 
 # Crear instancia de RDS con MySQL
