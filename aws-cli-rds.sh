@@ -1,3 +1,7 @@
+# Asociar política necesaria directamente al rol asumido por el usuario
+aws iam attach-role-policy --role-name voclabs/user2562510=Erik_Javaloya --policy-arn arn:aws:iam::aws:policy/AmazonRDSFullAccess
+aws iam attach-role-policy --role-name voclabs/user2562510=Erik_Javaloya --policy-arn arn:aws:iam::aws:policy/AmazonRDSReadOnlyAccess
+
 # Crear grupo de seguridad para la base de datos
 bd_erik_cli=$(aws ec2 create-security-group --group-name gs-erik-cli --description "Grupo de seguridad para la base de datos" --output json --query 'GroupId' | tr -d '"')
 
@@ -17,3 +21,4 @@ aws rds create-db-instance \
   --db-name bd_erik_cli \
   --port 3306 \
   --multi-az
+
